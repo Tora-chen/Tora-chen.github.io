@@ -39,7 +39,7 @@ hr{
 }
 
 .sec1 {
-    margin: 0;
+    margin: var(--s);
     text-align: center;
     color: #b1b1b1;
 }
