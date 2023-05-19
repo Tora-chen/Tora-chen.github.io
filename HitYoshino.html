@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <link rel="icon" href="Yosino_O.png">
+    <link rel="stylesheet" href="HitYoshino.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HitYoshino</title>
+</head>
+
+<body>
+    <section class="playField">
+        <img src="hit-1.jpg" width="65%" id="picture" onclick="click_pic()" />
+        <audio id="musicPlayer" src="bgm.mp3"></audio>
+        <audio id="hit.wav" src="hit.wav"></audio>
+        <audio id="n.wav" src="n.wav"></audio>
+        <audio id="Ciallo.wav" src="Ciallo.wav"></audio>
+        <p class="HitYoshino_p"><i> ↑↑↑↑ </i></p>
+        <p class="HitYoshino_p"><i>点我打芳乃</i></p>
+    </section>
+    <section class="center">
+        <p id="Ciallo" class="exit" onclick="click_Ciallo()">Ciallo~(∠・ω< )⌒★</p>
+    </section>
+    <section class="center">
+        <a href="index.html">
+            <p class="exit">今天打到这里\(￣▽￣)/</p>
+        </a>
+    </section>
+    <script>
+        var musicPlayer = document.getElementById('musicPlayer');
+        var picture = document.getElementById('picture');
+        var hitVoice = document.getElementById('hit.wav');
+        var nVoice = document.getElementById('n.wav');
+        var CialloVoice = document.getElementById('Ciallo.wav');
+        function click_Ciallo() {
+            CialloVoice.play();
+            picture.src = "Ciallo.jpg";
+            setTimeout(() => {
+                picture.src = "After-Ciallo.jpg";
+            }, 1000);
+        }
+        var isFirstClick = true;
+        function click_pic() {
+            if (isFirstClick) {
+                musicPlayer.play();
+                isFirstClick = false;
+            } else {
+                hit();
+            }
+        }
+        function hit() {
+            nVoice.currentTime = 0;
+            hitVoice.currentTime = 0;
+            nVoice.play();
+            hitVoice.play();
+            picture.src = "hit-main.jpg";
+            setTimeout(() => {
+                picture.src = "hit-2.jpg";
+            }, 400);
+        }
+    </script>
+</body>
+
+</html>
